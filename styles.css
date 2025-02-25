@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    font-family: 'Bangers', sans-serif;
+    background: 
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(38px/-8) calc(38px/2),
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(-3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(38px/-8) 0,
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) 0 calc(38px/-4),
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) calc(38px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #020229 25%, #0000 0) calc(38px/8) 0
+      #007cb5;
+    background-size: 38px 38px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.titre {
+    font-family: 'Bangers', sans-serif;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    margin: 20px 0;
+    padding: 0;
+}
+
+.jeux {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px); /* Ajuster la hauteur pour tenir compte du titre */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.games-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+.game-image {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-image img {
+    width: 100px; /* Ajustez la taille de l'image selon vos besoins */
+    height: 100px; /* Ajustez la taille de l'image selon vos besoins */
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: underline;
+}
