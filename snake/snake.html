@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <!-- Conteneur principal -->
+    <div class="container">
+        <h1>Snake</h1>
+        <!-- Affichage du score -->
+        <div class="score">Score: <span id="score">0</span></div>
+        <!-- Affichage du meilleur score -->
+        <div class="high-score">Meilleur Score: <span id="highScore">0</span></div>
+        <!-- Canvas pour le jeu -->
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <!-- Menu de fin de jeu -->
+        <div id="gameOverMenu" class="game-over-menu">
+            <img src="../images/lost.gif" alt="Game Over">
+            <h2>Game Over!</h2>
+            <p>Votre score: <b id="finalScore">0</b></p>
+            <button onclick="restartGame()">Recommencer</button>
+        </div>
+    </div>
+    <!-- Script du jeu -->
+    <script src="snake.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background: 
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(38px/-8) calc(38px/2),
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(-3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(38px/-8) 0,
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) 0 calc(38px/-4),
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) calc(38px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #020229 25%, #0000 0) calc(38px/8) 0
+      #007cb5;
+    background-size: 38px 38px;
+    color: #fffbfb;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#gameContainer {
+    width: 100%;
+    margin: 20px auto 0;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; 
+    display: flex;
+}
+
+.game-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.hangman-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hangman-box img {
+    max-width: 270px;
+    height: auto;
+}
+
+.hangman-box h1 {
+    font-size: 1.45rem;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000; /* Titre en noir */
+}
+
+.word-display {
+    display: flex;
+    flex-wrap: wrap; /* Permettre le retour à la ligne si nécessaire */
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    list-style: none;
+    align-items: flex-end;
+    width: auto; /* S'adapte automatiquement au contenu */
+    max-width: 100%; /* Empêche le débordement */
+    padding: 10px; /* Un peu d'espace pour éviter que ça touche les bords */
+}
+
+.game-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centrer le contenu */
+    width: auto; /* Ajuste automatiquement la taille */
+    min-width: 300px; /* Évite que ça devienne trop petit */
+    padding: 20px;
+}
+
+.letter {
+    width: 28px;
+    margin-bottom: 10px; /* Ajuster la marge pour descendre les underscores */
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 3px solid #000000;
+    padding: 0 5px;
+    color: #000;
+    position: relative;
+    top: -10px; /* Ajuster la position pour que les lettres apparaissent au-dessus des underscores */
+    z-index: 1; /* Mettre les lettres au premier plan */
+}
+
+.letter.guessed {
+    border-bottom: none; /* Supprimer le tiret du bas pour les lettres devinées */
+}
+
+.guesses-text {
+    margin: 20px 0; /* Ajuster la marge pour centrer la phrase */
+    border-color: transparent;
+    color: #000; /* Texte des erreurs en noir */
+    text-align: left; /* Aligner le texte à gauche */
+    align-self: flex-start; /* Aligner à gauche du conteneur */
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px; /* Ajuster la marge pour espacer le clavier */
+}
+
+:where(.game-modal, .keyboard) button {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid #333;
+    background-color: #fff;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+    outline: none;
+}
+
+.keyboard button {
+    padding: 7px;
+    width: calc(100% / 9 - 5px);
+}
+
+.keyboard button[disabled] {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+:where(.game-modal, .keyboard) button:hover {
+    background-color: #f0f0f0;
+}
+
+.game-box h4 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.game-box h4 b {
+    font-weight: 600;    
+}
+
+.guesses-text b {
+    color: red;
+}
+
+.game-modal {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.4s ease;
+}
+
+.game-modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.content {
+    background: #fff;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.game-modal img {
+    max-width: 130px; 
+    margin-bottom: 20px;  
+}
+
+.game-modal h4 {
+    font-size: 1.53rem;
+    color: black;
+}
+
+.game-modal p {
+    font-size: 1.15rem;
+    margin: 15px 0 30px;
+    font-weight: 500;
+    color: black;
+}
+
+.game-modal p b {
+    color: black;
+    font-weight: 600;
+}
+
+.game-modal button {
+    padding: 12px 23px;
+}
+
+@media (max-width: 782px) {
+    .container {
+        flex-direction: column;
+        padding: 30px 15px;
+        align-items: center;
+    }
+
+    .game-content {
+        flex-direction: column;
+    }
+
+    .hangman-box img {
+        max-width: 200px;
+    }
+
+    .hangman-box h1 {
+        display: none;
+    }
+}
+
+@media (min-width: 783px) {
+    .game-content {
+        flex-direction: row;
+    }
+
+    .hangman-box {
+        align-items: flex-start;
+    }
+
+    .game-box {
+        align-items: flex-start;
+    }
+}

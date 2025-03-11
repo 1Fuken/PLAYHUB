@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Pendu</title>
+    <link rel="stylesheet" href="pendu.css">
+    <script src="wordList.js" defer></script> <!-- Charger wordList.js avant pendu.js -->
+    <script src="pendu.js" defer></script> 
+</head>
+<body>
+    <!-- Fenêtre de fin de jeu -->
+    <div class="game-modal">
+        <div class="content">
+            <img src="../images/lost.gif" alt="gif">
+            <h4>Game Over!</h4>
+            <p>Le mot à trouver était: <b></b> </p>
+            <button class="play-again">Rejouer</button>
+        </div>
+    </div>
+    <!-- Conteneur principal du jeu -->
+    <div class="container">
+        <div id="gameContainer">
+            <div class="game-content">
+                <!-- Boîte du pendu -->
+                <div class="hangman-box">
+                    <img src="../images/hangman-0.png" alt="hangman-img">
+                    <h1>Le Pendu</h1>
+                </div>
+                <!-- Boîte de jeu -->
+                <div class="game-box">
+                    <div class="word"></div> <!-- Ajout de l'élément avec la classe .word -->
+                    <ul class="word-display"></ul> 
+                    <h4 class="guesses-text">
+                        Mauvaise réponse: 
+                        <b>0 / 6</b>
+                    </h4>
+                    <div class="keyboard"></div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* Style général du corps de la page */
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background: 
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(38px/-8) calc(38px/2),
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(-3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(38px/-8) 0,
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) 0 calc(38px/-4),
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) calc(38px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #020229 25%, #0000 0) calc(38px/8) 0
+      #007cb5;
+    background-size: 38px 38px;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+/* Score et score maximum */
+.score, .high-score {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Zone de jeu */
+canvas {
+    border: 1px solid black;
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+/* Menu de fin de partie */
+.game-over-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Image dans le menu de fin de partie */
+.game-over-menu img {
+    max-width: 130px;
+    margin-bottom: 20px;
+}
+
+/* Texte et titre dans le menu */
+.game-over-menu h2 {
+    margin: 0 0 20px 0;
+}
+
+.game-over-menu p {
+    font-size: 1.15rem;
+    margin: 15px 0 30px;
+    font-weight: 500;
+    color: white;
+}
+
+.game-over-menu p b {
+    color: white;
+    font-weight: 600;
+}
+
+/* Bouton du menu */
+.game-over-menu button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
