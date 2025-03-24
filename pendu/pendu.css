@@ -1,0 +1,257 @@
+/* Importation de la police Open Sans depuis Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+/* Réinitialisation des styles par défaut et application de la police */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Style du corps de la page */
+body {
+    font-family: 'Roboto', sans-serif; /* Application de la police Roboto */
+    text-align: center;
+    background: /* Dégradé conique pour un effet visuel */
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(38px/-8) calc(38px/2),
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(-3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(38px/-8) 0,
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) 0 calc(38px/-4),
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) calc(38px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #020229 25%, #0000 0) calc(38px/8) 0
+      #007cb5;
+    background-size: 38px 38px;
+    color: #fffbfb;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Conteneur principal */
+.container {
+    width: 100%;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Conteneur du jeu */
+#gameContainer {
+    width: 100%;
+    margin: 20px auto 0;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+}
+
+/* Disposition du contenu du jeu */
+.game-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Section du pendu */
+.hangman-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Image du pendu */
+.hangman-box img {
+    max-width: 270px;
+    height: auto;
+}
+
+/* Titre du pendu */
+.hangman-box h1 {
+    font-size: 1.45rem;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+}
+
+/* Affichage du mot */
+.word-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    list-style: none;
+    align-items: flex-end;
+    width: auto;
+    max-width: 100%;
+    padding: 10px;
+}
+
+/* Conteneur du jeu */
+.game-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 300px;
+    padding: 20px;
+}
+
+/* Style des lettres */
+.letter {
+    width: 24px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 3px solid #000000;
+    padding: 0 5px;
+    color: #000;
+    position: relative;
+    top: -10px;
+    z-index: 1;
+}
+
+/* Style des lettres devinées */
+.letter.guessed {
+    border-bottom: none;
+}
+
+/* Texte des erreurs */
+.guesses-text {
+    margin: 20px 0;
+    border-color: transparent;
+    color: #000000;
+    text-align: left;
+    align-self: flex-start;
+}
+
+.guesses-text b {
+    color: #fa0606;
+    font-weight: 600;
+}
+
+/* Clavier */
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Boutons du clavier */
+:where(.game-modal, .keyboard) button {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid #333;
+    background-color: #fff;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+    outline: none;
+    width: 40px;
+    height: 40px;
+}
+
+/* Effet de survol des boutons */
+:where(.game-modal, .keyboard) button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style du modal de jeu */
+.game-modal {
+    position: fixed;
+    left: 0 ;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.4s ease;
+}
+
+/* Affichage du modal */
+.game-modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+/* Contenu du modal */
+.game-modal .content { 
+    background: #fffdfd;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+/* Style de l'image du modal */
+.game-modal img{
+    max-width: 130px;
+    margin-bottom: 20px;
+}
+/* Style du titre du modal */
+.game-modal h4 {
+    font-size: 1.53rem;
+    color: #000;
+}
+/* Style du texte du modal */
+.game-modal p {
+    font-size: 1.15rem;
+    margin: 15px 0;
+    font-weight: 500;
+    color: #000;
+}
+/* Style du texte en gras */
+.game-modal p b {
+    color: #131212;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Bouton du modal */
+.game-modal button {
+        padding: 10px 20px; /* Ajuste la taille du bouton */
+        display: flex; /* Permet de centrer le texte */
+        align-items: center; /* Centre verticalement */
+        justify-content: center; /* Centre horizontalement */
+        width: 100%; /* Ajuste la largeur au besoin */
+        font-size: 1rem; /* Assure une bonne lisibilité */
+
+}
+/* Conception adaptative */
+@media (max-width: 782px) {
+    .container {
+        flex-direction: column;
+        padding: 30px 15px;
+        align-items: center;
+    }
+    .game-content {
+        flex-direction: column;
+    }
+    .hangman-box img {
+        max-width: 200px;
+    }
+    .hangman-box h1 {
+        display: none;
+    }
+}

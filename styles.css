@@ -1,0 +1,124 @@
+/* Importation de la police Open Sans depuis Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+/* Réinitialisation des styles par défaut et application de la police */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Style du corps de la page */
+body {
+    font-family: 'Bangers', sans-serif; /* Application d'une autre police */
+    background: /* Définition d'un arrière-plan en dégradé conique pour un effet visuel */
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(38px/-8) calc(38px/2),
+      conic-gradient(at 62.5% 12.5%, #020229 25%, #0000 0) calc(-3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(3*38px/8) calc(38px/4),
+      conic-gradient(at 87.5% 62.5%, #020229 25%, #0000 0) calc(38px/-8) 0,
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) 0 calc(38px/-4),
+      conic-gradient(at 25% 12.5%, #020229 25%, #0000 0) calc(38px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #020229 25%, #0000 0) calc(38px/8) 0
+      #007cb5; /* Couleur de fond principale */
+    background-size: 38px 38px;
+    color: #333;
+    text-align: center;
+}
+
+/* Style du titre principal */
+.titre {
+    font-family: 'Bangers', sans-serif;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    margin: 20px 0;
+}
+
+/* Section des jeux : centrée verticalement et horizontalement */
+.jeux {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px); /* Ajustement de la hauteur */
+}
+
+/* Conteneur principal centré */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style des titres h1 */
+h1 {
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+/* Suppression des puces des listes */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Espacement entre les éléments de la liste */
+li {
+    margin: 10px 0;
+}
+
+/* Grille des jeux : centrée avec des espacements */
+.games-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Carte de jeu avec ombre et effet au survol */
+.game-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Effet d'agrandissement au survol */
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+/* Conteneur pour l'image du jeu, centré */
+.game-image {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style de l'image du jeu */
+.game-image img {
+    width: 100px; /* Taille de l'image */
+    height: 100px;
+    border-radius: 10px;
+}
+
+/* Style des liens */
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Soulignement au survol des liens */
+a:hover {
+    text-decoration: underline;
+}
+
